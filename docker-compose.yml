@@ -4,7 +4,7 @@ services:
   photon:
     container_name: photon
     image: git.pengu.ca/jackson/photon:${BUILD_TAG:-latest}
-    user: 1000:1000 # should be owner of volumes
+    #user: 1000:1000 # should be owner of volumes
     volumes:
       - /z/ruby/docker/photon/data/:/photon/photon_data
     ports:
