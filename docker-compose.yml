@@ -4,8 +4,9 @@ services:
   photon:
     container_name: photon
     image: git.pengu.ca/jackson/photon:${BUILD_TAG:-latest}
+    user: 1000:1000 # should be owner of volumes
     volumes:
-      - data:/photon/photon_data
+      - /z/ruby/docker/photon/data/:/photon/photon_data
     ports:
       - 2322:2322/tcp
     restart: always
@@ -13,6 +14,3 @@ services:
       TZ: America/Vancouver
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-
-volumes:
-  data:
