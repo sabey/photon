@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  photon:
+    container_name: photon
+    image: git.pengu.ca/jackson/photon:${BUILD_TAG:-latest}
+    volumes:
+      - data:/photon/photon_data
+    ports:
+      - 2322:2322/tcp
+    restart: always
+    environment:
+      TZ: America/Vancouver
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+volumes:
+  data:
